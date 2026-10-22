@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f6f1">
+  <meta name="description" content="Lauretta Ewhenke builds modern, responsive websites and web applications for businesses and entrepreneurs.">
+  <title>Lauretta Ewhenke | Website Developer</title>
+
+  <style>
+    :root {
+      --bg: #f8f6f1;
+      --paper: #ffffff;
+      --ink: #20251f;
+      --muted: #72766d;
+      --accent: #b85d43;
+      --accent-light: #f0dfd5;
+      --line: #e7e3db;
+      --green: #526b50;
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248, 246, 241, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-contact {
+      border: 1px solid var(--ink);
+      padding: 9px 16px;
+      border-radius: 30px;
+    }
+
+    .hero {
+      padding: 100px 0 90px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #72936d;
+      display: inline-block;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.13;
+      letter-spacing: -1.7px;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(43px, 6.1vw, 72px);
+      font-weight: 500;
+      max-width: 650px;
+    }
+
+    h1 em {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .hero-copy {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 500px;
+      margin: 25px 0 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 21px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-dark {
+      background: var(--ink);
+      color: white;
+    }
+
+    .btn-dark:hover {
+      background: var(--green);
+    }
+
+    .btn-outline {
+      border: 1px solid #d8d3c9;
+      background: transparent;
+    }
+
+    .hero-art {
+      min-height: 390px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .art-card {
+      width: 100%;
+      max-width: 380px;
+      min-height: 350px;
+      background: #e9d5c6;
+      border-radius: 180px 180px 24px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .art-circle {
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 50%;
+    }
+
+    .art-circle.two {
+      width: 210px;
+      height: 210px;
+    }
+
+    .art-letter {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 145px;
+      color: #6c4435;
+      position: relative;
+      z-index: 1;
+      font-style: italic;
+    }
+
+    .art-note {
+      position: absolute;
+      background: white;
+      padding: 13px 17px;
+      border-radius: 13px;
+      box-shadow: 0 12px 35px rgba(42, 35, 25, 0.1);
+      font-size: 12px;
+      font-weight: 700;
+      z-index: 2;
+    }
+
+    .note-top {
+      top: 35px;
+      right: -3px;
+    }
+
+    .note-bottom {
+      bottom: 28px;
+      left: -10px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .note-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+    }
+
+    .section {
+      padding: 85px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 25px;
+      margin-bottom: 35px;
+    }
+
+    .section-label {
+      display: block;
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 13px;
+    }
+
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(35px, 4.5vw, 48px);
+      font-weight: 500;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 340px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 15px;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 45px rgba(30, 30, 20, 0.07);
+    }
+
+    .project-visual {
+      height: 265px;
+      border-radius: 15px;
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .nanawears-visual {
+      background: #eee0d3;
+    }
+
+    .studysync-visual {
+      background: #dce5df;
+    }
+
+    .mock-window {
+      width: 100%;
+      max-width: 330px;
+      background: #fffdf9;
+      border-radius: 10px;
+      box-shadow: 0 12px 35px rgba(35, 35, 25, 0.12);
+      overflow: hidden;
+      transform: rotate(-2deg);
+    }
+
+    .window-bar {
+      height: 20px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      padding: 0 9px;
+      gap: 4px;
+    }
+
+    .window-bar i {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #c7c1b8;
+    }
+
+    .fashion-layout {
+      padding: 15px;
+    }
+
+    .fashion-brand {
+      font-family: Georgia, serif;
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .fashion-nav {
+      font-size: 7px;
+      color: #777;
+      border-top: 1px solid #e9e1d8;
+      border-bottom: 1px solid #e9e1d8;
+      padding: 6px 0;
+      margin: 8px 0;
+    }
+
+    .fashion-feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .fabric-block {
+      height: 105px;
+      border-radius: 5px;
+      background:
+        repeating-linear-gradient(45deg, transparent 0 9px, rgba(255,255,255,.6) 9px 12px),
+        repeating-linear-gradient(-45deg, #c16b45 0 8px, #e3b67d 8px 16px, #5b6650 16px 24px);
+    }
+
+    .fashion-title {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      line-height: 1.15;
+    }
+
+    .fashion-small {
+      font-size: 8px;
+      color: #777;
+      margin-top: 8px;
+    }
+
+    .study-layout {
+      padding: 17px;
+    }
+
+    .study-logo {
+      font-size: 16px;
+      font-weight: 800;
+      color: #3b5c4b;
+      margin-bottom: 10px;
+    }
+
+    .study-title {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .study-subtitle {
+      font-size: 8px;
+      color: #777;
+      margin-bottom: 13px;
+    }
+
+    .study-row {
+      display: flex;
+      gap: 7px;
+      margin-bottom: 7px;
+    }
+
+    .study-chip {
+      border: 1px solid #d6e0d7;
+      padding: 5px 8px;
+      font-size: 8px;
+      border-radius: 5px;
+      color: #47634e;
+    }
+
+    .study-button {
+      background: #47634e;
+      color: white;
+      padding: 8px;
+      text-align: center;
+      font-size: 9px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .project-info {
+      padding: 22px 8px 10px;
+    }
+
+    .project-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 9px;
+    }
+
+    .project-topline h3 {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      font-weight: 500;
+      letter-spacing: -0.6px;
+    }
+
+    .project-type {
+      font-size: 10px;
+      background: #f3f0e9;
+      padding: 5px 9px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .project-info p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 17px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 19px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 5px 10px;
+      font-size: 10px;
+      color: #55594f;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 4px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .service-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 26px 22px;
+      background: rgba(255,255,255,0.48);
+    }
+
+    .service-number {
+      color: var(--accent);
+      font-family: Georgia, serif;
+      font-size: 23px;
+      margin-bottom: 28px;
+    }
+
+    .service-card h3 {
+      font-family: Georgia, serif;
+      font-size: 23px;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .service-note {
+      margin-top: 22px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .about-stamp {
+      background: var(--green);
+      color: white;
+      border-radius: 20px;
+      min-height: 255px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .about-stamp .big-letter {
+      font-family: Georgia, serif;
+      font-size: 92px;
+      line-height: 1;
+      color: #e6d4bd;
+      font-style: italic;
+    }
+
+    .about-stamp p {
+      font-size: 13px;
+      max-width: 210px;
+    }
+
+    .about-copy h2 {
+      margin-bottom: 22px;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 22px;
+    }
+
+    .skill {
+      background: var(--accent-light);
+      color: #754632;
+      border-radius: 20px;
+      padding: 7px 12px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .contact-section {
+      padding: 80px 0;
+      background: #e9e1d5;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .contact-wrap h2 {
+      max-width: 550px;
+      margin-bottom: 18px;
+    }
+
+    .contact-wrap p {
+      color: #66665c;
+      font-size: 14px;
+      max-width: 480px;
+      margin-bottom: 26px;
+    }
+
+    .contact-options {
+      background: rgba(255,255,255,0.7);
+      padding: 26px;
+      border-radius: 18px;
+    }
+
+    .contact-item {
+      padding: 15px 0;
+      border-bottom: 1px solid #e5dfd4;
+    }
+
+    .contact-item:last-child {
+      border-bottom: none;
+    }
+
+    .contact-label {
+      display: block;
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      margin-bottom: 5px;
+    }
+
+    .contact-value {
+      font-size: 14px;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      padding: 26px 0;
+    }
+
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      align-items: center;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .footer-brand {
+      color: var(--ink);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: 90%;
+      }
+
+      nav {
+        min-height: 68px;
+      }
+
+      .brand {
+        font-size: 15px;
+      }
+
+      .nav-links {
+        gap: 13px;
+        font-size: 11px;
+      }
+
+      .nav-links a:nth-child(1),
+      .nav-links a:nth-child(2) {
+        display: none;
+      }
+
+      .nav-contact {
+        padding: 8px 12px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 70px 0 60px;
+        gap: 30px;
+      }
+
+      h1 {
+        font-size: clamp(44px, 12vw, 65px);
+      }
+
+      .hero-copy {
+        font-size: 14px;
+      }
+
+      .hero-art {
+        min-height: 310px;
+        margin: 0 8px;
+      }
+
+      .art-card {
+        min-height: 290px;
+        max-width: 330px;
+      }
+
+      .art-letter {
+        font-size: 115px;
+      }
+
+      .art-circle {
+        width: 225px;
+        height: 225px;
+      }
+
+      .art-circle.two {
+        width: 175px;
+        height: 175px;
+      }
+
+      .note-top {
+        right: -5px;
+      }
+
+      .section {
+        padding: 65px 0;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-intro {
+        margin-top: 15px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-visual {
+        height: 245px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        padding: 23px;
+      }
+
+      .service-number {
+        margin-bottom: 16px;
+      }
+
+      .about-wrap,
+      .contact-wrap {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .about-stamp {
+        min-height: 210px;
+      }
+
+      .contact-section {
+        padding: 65px 0;
+      }
+
+      .footer-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="container">
+      <a class="brand" href="#home">Lauretta Ewhenke<span>.</span></a>
+
+      <div class="nav-links">
+        <a href="#work">My Work</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a class="nav-contact" href="#contact">Let's Talk ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div>
+        <div class="eyebrow">
+          <span class="dot"></span>
+          Website Developer
+        </div>
+
+        <h1>
+          Websites built for businesses <em>ready to grow.</em>
+        </h1>
+
+        <p class="hero-copy">
+          I turn ideas into modern, responsive websites and web
+          applications that help businesses show up online with
+          confidence. Thoughtful design, practical features, and
+          a focus on what your customers need.
+        </p>
+
+        <div class="buttons">
+          <a class="btn btn-dark" href="#work">Explore my work ↗</a>
+          <a class="btn btn-outline" href="#contact">Let's build something</a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="Lauretta Ewhenke personal brand artwork">
+        <div class="art-card">
+          <div class="art-circle"></div>
+          <div class="art-circle two"></div>
+          <div class="art-letter">L.</div>
+        </div>
+
+        <div class="art-note note-top">
+          Thoughtful design ✳
+        </div>
+
+        <div class="art-note note-bottom">
+          <span class="note-icon">↗</span>
+          <span>Ideas into digital experiences</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="section-label">Selected projects</span>
+            <h2>Work I'm proud of.</h2>
+          </div>
+
+          <p class="section-intro">
+            A look at what I've been building, from online shopping
+            experiences to applications that bring people together.
+          </p>
+        </div>
+
+        <div class="project-grid">
+
+          <article class="project-card">
+            <div class="project-visual nanawears-visual">
+              <div class="mock-window">
+                <div class="window-bar">
+                  <i></i><i></i><i></i>
+                </div>
+
+                <div class="fashion-layout">
+                  <div class="fashion-brand">NAN AWEARS</div>
+                  <div class="fashion-nav">
+                    ANKARA &nbsp;&nbsp; KENTE &nbsp;&nbsp;
+                    DAMASK &nbsp;&nbsp; READY-TO-WEAR
+                  </div>
+
+                  <div class="fashion-feature">
+                    <div>
+                      <div class="fashion-title">
+                        African fashion.<br>Made to stand out.
+                      </div>
+                      <div class="fashion-small">
+                        Explore fabrics and styles for every occasion.
+                      </div>
+                    </div>
+                    <div class="fabric-block"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-info">
+              <div class="project-topline">
+                <h3>Nanawears</h3>
+                <span class="project-type">E-commerce</span>
+              </div>
+
+              <p>
+                An online fashion store for African fabrics and
+                ready-to-wear pieces, designed to make browsing
+                collections and shopping easier.
+              </p>
+
+              <div class="tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">Supabase</span>
+                <span class="tag">Responsive design</span>
+                <span class="tag">E-commerce</span>
+              </div>
+
+              <a class="project-link"
+                 href="https://www.nanawears.com"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                Visit live website ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual studysync-visual">
+              <div class="mock-window">
+                <div class="window-bar">
+                  <i></i><i></i><i></i>
+                </div>
+
+                <div class="study-layout">
+                  <div class="study-logo">StudySync.</div>
+                  <div class="study-title">
+                    Make study time count.
+                  </div>
+                  <div class="study-subtitle">
+                    Find a study partner who matches your goals.
+                  </div>
+
+                  <div class="study-row">
+                    <span class="study-chip">Computer Science</span>
+                    <span class="study-chip">45 minutes</span>
+                  </div>
+
+                  <div class="study-row">
+                    <span class="study-chip">Focused study</span>
+                    <span class="study-chip">Study together</span>
+                  </div>
+
+                  <div class="study-button">
+                    Find my study partner →
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-info">
+              <div class="project-topline">
+                <h3>StudySync</h3>
+                <span class="project-type">Web application</span>
+              </div>
+
+              <p>
+                A study-buddy application designed to match learners
+                by subject, session duration, and preferred study
+                style, with a foundation for shared study sessions.
+              </p>
+
+              <div class="tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Supabase</span>
+                <span class="tag">LiveKit</span>
+              </div>
+
+              <a class="project-link"
+                 href="https://studysync-nu-six.vercel.app"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                Visit live application ↗
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="section-label">How I can help</span>
+            <h2>Ideas deserve a home online.</h2>
+          </div>
+
+          <p class="section-intro">
+            Practical website solutions for business owners,
+            entrepreneurs, and people ready to bring an idea to life.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-number">01 /</div>
+            <h3>Landing Pages</h3>
+            <p>
+              Focused, responsive pages for promoting a service,
+              launching a product, or helping customers take the
+              next step.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-number">02 /</div>
+            <h3>Business Websites</h3>
+            <p>
+              Professional websites that introduce your business,
+              explain what you offer, and make it easy for customers
+              to contact you.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-number">03 /</div>
+            <h3>Online Stores & Apps</h3>
+            <p>
+              E-commerce experiences and custom web applications
+              planned around your products, users, and business goals.
+            </p>
+          </article>
+        </div>
+
+        <p class="service-note">
+          Every project is scoped individually. Contact me to discuss
+          your idea, requirements, timeline, and quote.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-wrap">
+        <div class="about-stamp">
+          <span class="section-label" style="color:#e6d4bd">
+            A little about me
+          </span>
+          <div class="big-letter">L.</div>
+          <p>
+            Curious mind. Practical problem-solver. Always building.
+          </p>
+        </div>
+
+        <div class="about-copy">
+          <span class="section-label">Behind the work</span>
+          <h2>Good ideas. Useful technology. Thoughtful execution.</h2>
+
+          <p>
+            I'm Lauretta Ewhenke, a website developer with a background
+            in Computer Science and experience building digital
+            projects using modern web technologies and AI-assisted
+            development.
+          </p>
+
+          <p>
+            I enjoy taking an idea from an early concept to a working
+            website. My projects have helped me develop practical
+            experience in building interfaces, connecting application
+            features, working with databases, and deploying websites.
+          </p>
+
+          <p>
+            My approach combines curiosity, hands-on testing, and
+            attention to the details that make a website useful.
+            I'm interested in working with people who want to turn
+            their ideas into something real.
+          </p>
+
+          <div class="skills">
+            <span class="skill">Next.js</span>
+            <span class="skill">React</span>
+            <span class="skill">TypeScript</span>
+            <span class="skill">Supabase</span>
+            <span class="skill">Responsive Design</span>
+            <span class="skill">AI-assisted Development</span>
+            <span class="skill">Vercel</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-wrap">
+        <div>
+          <span class="section-label">Have a project in mind?</span>
+          <h2>Let's make your next idea happen.</h2>
+
+          <p>
+            Whether you're starting a business, improving your online
+            presence, or exploring an app idea, tell me what you're
+            working on. We can discuss the best way to bring it to life.
+          </p>
+
+          <div class="buttons">
+            <a class="btn btn-dark"
+               href="https://wa.me/2348084367266?text=Hello%20Lauretta%2C%20I%27m%20interested%20in%20working%20with%20you%20on%20a%20website%20project."
+               target="_blank"
+               rel="noopener noreferrer">
+              Message me on WhatsApp ↗
+            </a>
+
+            <a class="btn btn-outline"
+               href="mailto:laurettaewhenke@gmail.com?subject=Website%20Project%20Enquiry">
+              Send an email
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-options">
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <a class="contact-value"
+               href="mailto:laurettaewhenke@gmail.com">
+              laurettaewhenke@gmail.com
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">WhatsApp</span>
+            <a class="contact-value"
+               href="https://wa.me/2348084367266"
+               target="_blank"
+               rel="noopener noreferrer">
+              +234 808 436 7266
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Availability</span>
+            <div class="contact-value">
+              Open to freelance projects
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <a class="footer-brand" href="#home">Lauretta Ewhenke.</a>
+      <span>Built with curiosity and care.</span>
+      <span>© <span id="year"></span> Lauretta Ewhenke</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+  </html>
